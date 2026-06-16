@@ -1,0 +1,10 @@
+def opposite_signs(a, b):
+    return (a ^ b) < 0
+
+x = int(input())
+y = int(input())
+
+if opposite_signs(x, y):
+    print("Opposite signs")
+else:
+    print("Same signs")
