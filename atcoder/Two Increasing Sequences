@@ -1,0 +1,18 @@
+n = int(input())
+a = list(map(int, input().split()))
+
+last1 = float('-inf')
+last2 = float('-inf')
+
+for x in a:
+    if x > last1 and (last1 <= last2 or x <= last2):
+        last1 = x
+    elif x > last2:
+        last2 = x
+    elif x > last1:
+        last1 = x
+    else:
+        print("No")
+        exit()
+
+print("Yes")
