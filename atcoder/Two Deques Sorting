@@ -1,0 +1,16 @@
+from collections import deque
+
+n = int(input())
+a = list(map(int, input().split()))
+
+dq = deque()
+
+for x in sorted(a):
+    if not dq:
+        dq.append(x)
+    elif x < dq[0]:
+        dq.appendleft(x)
+    else:
+        dq.append(x)
+
+print("Yes")
