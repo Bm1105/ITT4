@@ -1,0 +1,20 @@
+def start_pump(petrol, dist):
+    total = 0
+    balance = 0
+    start = 0
+
+    for i in range(len(petrol)):
+        total += petrol[i] - dist[i]
+        balance += petrol[i] - dist[i]
+
+        if balance < 0:
+            start = i + 1
+            balance = 0
+
+    return start if total >= 0 else -1
+
+n = int(input())
+petrol = list(map(int, input().split()))
+dist = list(map(int, input().split()))
+
+print(start_pump(petrol, dist))
