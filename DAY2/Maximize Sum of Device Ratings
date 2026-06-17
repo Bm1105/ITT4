@@ -1,0 +1,15 @@
+class Solution:
+    def maxRatings(self, units):
+        if len(units[0]) == 1:
+            return sum(unit[0] for unit in units)
+        total_second_min_sum = 0
+        mn = float('inf')   
+        mn2 = float('inf')  
+        for unit in units:
+            unit.sort()
+            current_min = unit[0]
+            second_min = unit[1]
+            total_second_min_sum += second_min
+            mn = min(mn, current_min)
+            mn2 = min(mn2, second_min)
+        return total_second_min_sum - mn2 + mn
