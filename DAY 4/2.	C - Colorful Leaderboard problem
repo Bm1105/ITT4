@@ -1,0 +1,46 @@
+import sys
+
+def solve():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+        
+    N = int(input_data[0])
+    ratings = [int(x) for x in input_data[1:N+1]]
+    
+    fixed_colors = set()
+    free_pickers = 0
+    
+    for r in ratings:
+        if 1 <= r <= 399:
+            fixed_colors.add(0)
+        elif 400 <= r <= 799:
+            fixed_colors.add(1)
+        elif 800 <= r <= 1199:
+            fixed_colors.add(2)
+        elif 1200 <= r <= 1599:
+            fixed_colors.add(3)
+        elif 1600 <= r <= 1999:
+            fixed_colors.add(4)
+        elif 2000 <= r <= 2399:
+            fixed_colors.add(5)
+        elif 2400 <= r <= 2799:
+            fixed_colors.add(6)
+        elif 2800 <= r <= 3199:
+            fixed_colors.add(7)
+        else:
+            free_pickers += 1
+            
+    base_count = len(fixed_colors)
+    
+    if base_count == 0:
+        min_colors = 1
+    else:
+        min_colors = base_count
+        
+    max_colors = base_count + free_pickers
+    
+    print(min_colors, max_colors)
+
+if __name__ == '__main__':
+    solve()
